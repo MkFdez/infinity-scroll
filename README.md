@@ -45,3 +45,13 @@ const infiniteScroll = new InfinityScroll(
 );
 
 // The class will automatically start observing the target element for scrolling.
+```
+## License
+This project is licensed under the MIT License - see the [MIT License](LICENSE.md). file for details.
+
+## Acknowledgments
+This class is inspired by the concept of infinite scrolling and uses the Intersection Observer API for efficient scrolling detection.
+It utilizes jQuery for making AJAX requests and manipulating the DOM.
+Feel free to use and modify this class in your projects. If you encounter any issues or have suggestions for improvements, please [Create an issue](https://github.com/MkFdez/infinity-scroll/issues/new).
+
+Happy scrolling!
