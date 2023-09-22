@@ -16,18 +16,25 @@ To use the `InfinityScroll` class in your web application, follow these steps:
 
 1. Include the jQuery library in your project if it's not already included.
 
-2. Include the `InfinityScroll` class in your JavaScript file.
+2. Create an HTML element at the end of the list you want to scroll. It can include inside some loading element, gif, etc that will be hidded when it is not fetching data.
+   
+   ```html
+   <div id="target_element">
+      <img src="loading.gif" />
+   </div> 
+   ```
+3. Include the `InfinityScroll` class in your JavaScript file.
 
-3. Create an instance of the `InfinityScroll` class by passing the required parameters:
+4. Create an instance of the `InfinityScroll` class by passing the required parameters:
    - `target_element`: The ID of the HTML element that triggers infinite scrolling.
    - `url`: The URL for making AJAX requests to load more data.
    - `callback`: A callback function to generate HTML elements from the server response.
    - `amount`: The number of items to load in each request.
    - `post_data` (optional): Additional data to send in the POST request.
 
-4. Customize the `callback` function to generate HTML elements based on your data structure.
+5. Customize the `callback` function to generate HTML elements based on your data structure.
 
-5. Enjoy seamless infinite scrolling on your web page!
+6. Enjoy seamless infinite scrolling on your web page!
 
 ## Example
 
@@ -41,7 +48,8 @@ const infiniteScroll = new InfinityScroll(
         // based on the data received from the server.
         return `<div>${data.someProperty}</div>`;
     },
-    10 // Load 10 items at a time
+    10, // Load 10 items at a time
+    { username: "username"} // additional data for the request
 );
 
 // The class will automatically start observing the target element for scrolling.
