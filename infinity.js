@@ -24,6 +24,7 @@ class InfinityScroll{
         this.target_element = target_element
         this.observer.observe(document.querySelector(`#${target_element}`))
         this.post_data = post_data
+        this.element_display = $(`#${target_element}`).css("display")
     }
 
 
@@ -37,21 +38,24 @@ class InfinityScroll{
         }
         if (data.length > 0) {
             this.observer.observe(document.querySelector(`#${this.target_element}`))
-
+            $(`#${this.target_element}`).css("display", "none")
         }
     }
 
 
     ServerCall() {
         const generator = this.GenerateElements.bind(this)
+        $(`#${this.target_element}`).css("display", this.element_display)
         $.ajax({
             url: this.url,
             dataType: "JSON",
             method: "POST",
             data: { count: this.count, amount: this.amount, ...this.post_data },
             success: function (response) {
+                $(`#${this.target_element}`).css("display", "none")               
                 generator(response)
-            }
+
+            },
         })
     }
 
